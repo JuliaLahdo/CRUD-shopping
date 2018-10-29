@@ -1,71 +1,39 @@
-<?php
 
+<?php
 session_start();
-
-include 'head.php'
-
 /**
-    * 1. Koppla upp till databasen
-    * 2. Hämta användaren från databasen
-    * 3. Kolla så att lösenordet i databasen
-    *       stämmer överens med lösenordet som 
-    *        användaren har skrivit in i 
-    *        formuläret: password_verify
-    *
-    *
-    */
+ * 1. Koppla upp till databasen
+ * 2. Hämta användaren från databasen
+ * 3. Kolla så att lösenordet i databasen
+ *    stämmer överens med lösenordet
+ *    som användaren har skrivit in i 
+ *    formuläret: password_verify
+ */
 
-// 1. Koppla upp till databasen (gör en include)
+include 'includes/database_connection.php';
 
-?>
-<h2>Login</h2>
-   <form action="login.php" method="POST">
-       <input type="text" name="username" placeholder="Användarnamn">
-       <input type="password" name="password" placeholder="Lösenord">
-       <input type="submit" value="Logga in">
-   </form>
-   
-   <a href="register.php">Inte medlem än? Bli medlem här!</a>
-   
-<?php
-$pdo = new PDO(
-    "mysql:host=localhost;dbname=galant;charset=utf8",
-    "root",
-    "root"
-);
-
-if(isset($_POST["username"])){
 $username = $_POST["username"];
-$password = $_POST ["password"];
+$password = $_POST["password"];
 
-//
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+$statement = $pdo->prepare("SELECT * FROM userInfo
+  WHERE username = :username");
 
-// No white space between $pdo and prepare
-$statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
 $statement->execute(
-[
+  [
     ":username" => $username
-]
+  ]
 );
-
-// 2. Hämta användare från databasen
-
-$fetchedUser = $statement->fetch();
-
+// When select is used, fetch must happen
+$fetched_user = $statement->fetch();
 // 3. Compare
-
-$isPasswordCorrect = password_verify($password, $fetchedUser["password"]);
-
-
-if($isPasswordCorrect){
-    // Save user globally to session
-    $_SESSION["username"] = $fetchedUser["username"];
-    header('Location: index.php'); // VART DU NU VILL GÅ
+$is_password_correct = password_verify($password, $fetched_user["password"]);
+if($is_password_correct){
+  // Save user globally to session
+  $_SESSION["username"] = $fetched_user["username"];
+  $_SESSION["userID"] = $fetched_user["userID"];
+  // Go back to frontpage
+  header('Location: index.php');
 } else {
-    // Handle errors
-    header('Location: login.php?login_failed=true'); // VART DU NU VILL GÅ
+  // Handle errors, go back to frontpage and populate $_GET
+  header('Location: loginform.php?error=Var vänlig fyll i alla fält för att logga in');
 }
-    
-}    
-?>

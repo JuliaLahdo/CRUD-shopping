@@ -1,8 +1,4 @@
 <?php
-include 'head.php'
-?>
-
-<?php
 
 /**
 *NO HTML PLEASE!
@@ -13,42 +9,64 @@ include 'head.php'
 */
 
 $pdo = new PDO(
-  "mysql:host=localhost;dbname=fed18;charset=utf8",
-  "root",
-  "root"
-);
+    "mysql:host=localhost;dbname=galant;charset=utf8",
+    "root",
+    "root"
+  );
 
-?>
+  $firstName = $_POST['firstName'];
+  $lastName = $_POST['lastName'];
+  $personalID = $_POST['personalID'];
+  $address = $_POST['address'];
+  $postalcode = $_POST['postalcode'];
+  $city = $_POST['city'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
 
-<!-- Will post form to register.php -->
-<h2>Register</h2>
-   <form action="profile.php" name="form" method="POST">
-      <input type="text" name="firstName" placeholder="Förnamn" id="registerFirstName">
-      <input type="text" name="lastName" placeholder="Efternamn" id="registerLastName"><br>
-      <input type="text" name="personalIdentityNumber" placeholder="ÅÅÅÅMMDDXXXX" id="registerPersonalIdentityNumber">
-      <input type="text" name="address" placeholder="Adress" id="registerAddress"><br>
-      <input type="text" name="postalCodeAndCity" placeholder="Postnummer & ort" id="registerPostalCodeAndCity">
-      <input type="text" name="email" placeholder="E-post" id="registerEmail"><br>
-      <input type="text" name="phoneNumber" placeholder="Mobil" id="registerPhoneNumber">
-       <input type="text" name="username" placeholder="Användarnamn" id="registerUsername"><br>
-       <input type="password" name="password" placeholder="Lösenord" id="registerPassword">
-       <input type="password" name="passwordVerify" placeholder="Bekräfta lösenord" id="registerConfirmPassword"><br>
-       <input type="submit" value="Slutför registrering">
-   </form>
-   
-<?php /* If your passwords don't match */
-    if (isset($_GET["error"])){
-        echo "Lösenorden stämmer ej överens, försök igen";
-    }
-?>
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-<?php //if(registerPassword === registerConfirmPassword){}
+  $statement = $pdo->prepare("INSERT INTO userInfo
+    (firstName, lastName, personalID, address, postalcode, city, email, phone, username, password) 
+    VALUES (:firstName, :lastName, :personalID, :address, :postalcode, :city, :email, :phone, :username, :password)");
 
-// Lagra användarna i users
-// :username :password är placeholders
+  $statement->execute(
+    [
+      ":firstName" => $firstName,
+      ":lastName" => $lastName,
+      ":personalID" => $personalID,
+      ":address" => $address,
+      ":postalcode" => $postalcode,
+      ":city" => $city,
+      ":email" => $email,
+      ":phone" => $phone,
+      ":username" => $username,
+      ":password" => $hashed_password
+    ]
+  );
 
-//header ('Location: index.php');
-    
-
-
+  /* If input-field in form is empty, redirect to index.php and fill in all fields */ 
+  if(empty($_POST["firstName"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i ditt förnamn, var vänlig fyll i alla fält');
+  }else if(empty($_POST["lastName"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i ditt efternamn, var vänlig fyll i alla fält');
+  }else if(empty($_POST["personalID"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i ditt personnummer, var vänlig fyll i alla fält');
+  }else if(empty($_POST["address"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i din adress, var vänlig fyll i alla fält');
+  }else if(empty($_POST["postalcode"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i ditt postnummer, var vänlig fyll i alla fält');
+  }else if(empty($_POST["city"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i din ort, var vänlig fyll i alla fält');
+  }else if(empty($_POST["email"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i din email, var vänlig fyll i alla fält');
+  }else if(empty($_POST["phone"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i ditt mobilnummer, var vänlig fyll i alla fält');
+  }else if(empty($_POST["username"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i ditt valda användarnamn, var vänlig fyll i alla fält');
+  }else if(empty($_POST["password"])){
+      header('Location: /registerform.php?error=Du har inte fyllt i ditt valda lösenord, var vänlig fyll i alla fält');
+  }else
+      header ('Location: index.php');
 ?>

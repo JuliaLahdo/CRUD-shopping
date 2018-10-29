@@ -3,7 +3,7 @@
     
     $date = date("l"); /* Picks out correct day automatically according to calendar */
     
-    include 'function.php';
+    include 'functions.php';
     
 
 foreach($products as $product): /* Looping through array.php, images, product name, reduced price after function.php, colors avaliable and inputfield with set session */
@@ -22,11 +22,21 @@ foreach($products as $product): /* Looping through array.php, images, product na
                 <?= $product['colors']; ?> <!-- Looping through $product['colors'] in array.php -->
             </p>
             <p>
-                <input class='howManyDoYouWant' type='number' name='<?= $product['input']; ?>' placeholder='Antal' value='<?= $_SESSION['saveInputValue'][$product['input']]; ?>' form='checkout'/> <!-- Looping through input-fields of each product in array.php, while saving in a session -->
+                <!-- Looping through input-fields of each product in array.php, while saving in a session -->
             </p>
-            <form action="action.php" method="POST" id="checkout">
-                <button type="submit"><i class="fas fa-shopping-basket"></i></button>
-            </form>    
+            <form action="addToCart.php" method="POST" name="addToCart" id="addToCart">
+                <input class='howManyDoYouWant' type='number' name='productAmount' placeholder='Antal' value='<?= $_SESSION['saveInputValue'][$product['input']]; ?>'/>
+                <input type="hidden" name='userID' value="<?= $_SESSION["userID"] ?>">
+                <input type="hidden" name='productPrice' value="<?= $product['price']; ?>">
+                <input type="hidden" name='productName' value="<?= $product['name']; ?>">
+                <?php if(isset($_SESSION["username"])){?>
+                    <button type="submit"><i class="fas fa-shopping-basket"></i></button>
+                    <?php
+                } else {?>
+                    <a href="<?= 'loginform.php'; ?> "><i class="fas fa-user"></i></a>
+                <?php } ?>
+                </form>
+
             
         </div>
         <?php endforeach; ?>

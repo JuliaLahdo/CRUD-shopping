@@ -68,6 +68,10 @@ img {
     font-size: 1.5rem;
 }
 
+.login a{
+    display: inline;
+}
+
 .card {
     font-family: 'Dosis', sans-serif;
     padding: 1em;
@@ -84,7 +88,7 @@ img {
 }
 
 .howManyDoYouWant {
-    width: 30%;
+    width: 20%;
     margin: 0 auto;
 }
 

@@ -5,21 +5,21 @@ session_start();
 <!DOCTYPE html>
 <html lang="sv">
      
-<?php include 'head.php' ?>
+<?php include 'includes/head.php' ?>
       
-<?php include 'array.php' ?>
+<?php include 'includes/array.php' ?>
        
 <body>
    
     <div class="container-fluid">
 
-        <?php include 'loop.php' ?>
+        <?php include 'includes/loop.php' ?>
 
         <?php //include 'form.php' ?>
       
     </div>
        
-       <?php include 'footer.php' ?>
+       <?php include 'includes/footer.php' ?>
 
 </body>
 
