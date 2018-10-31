@@ -6,6 +6,7 @@ session_start();
     include '../includes/functions.php';
 
 ?>
+
 <section class="row">
     <section class="card text-center col-10 col-md-4 col-lg-4">
         <h2>Kundkorg</h2>
@@ -28,7 +29,7 @@ session_start();
             );
 
             $shoppingCart = $statement->fetchAll(PDO::FETCH_ASSOC);
-            
+
             $sum = 0;
 
             /* Looping through and showing shoppingcart, showing products with correct prices from reaching out to database above */
@@ -82,9 +83,9 @@ session_start();
                 <br>
             <?php } ?> </p>
 
-        </section>
-
     </section>
+
+</section>
 
 <?php 
     include '../includes/footer.php';

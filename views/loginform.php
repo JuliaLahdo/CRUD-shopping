@@ -24,11 +24,11 @@
         </form>
     <a href="registerform.php">Inte medlem än? Bli medlem här!</a>
 
-    <?php /* If all form-inputs aren't filled in */
+<?php /* If all form-inputs aren't filled in */
     if (isset($_GET["error"])){
         echo $_GET["error"];
     }
-    ?>
+?>
     
 </div>
 

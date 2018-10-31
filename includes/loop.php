@@ -16,7 +16,7 @@ foreach($products as $product): /* Looping through array.php, images, product na
                 <?= $product['name']; ?> <!-- Looping through $product['name'] in array.php -->
             </h3>
             <p>
-                <?= reducedPrice($product['price']); ?> kr <!-- Looping through $product['price'] in array.php -->
+                <?= reducedPrice($product['price']); ?> kr <!-- Looping through reducedPrice($product['price']) from array.php/functions.php -->
             </p>
             <p>
                 <?= $product['colors']; ?> <!-- Looping through $product['colors'] in array.php -->

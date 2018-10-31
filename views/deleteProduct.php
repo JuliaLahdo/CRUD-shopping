@@ -5,7 +5,6 @@ session_start();
 include '../includes/database_connection.php';
 
 /* Go through this code if you push delete product in confirm.php, meaning delete specific product from addToCart table from specific userID */
-
     if(isset($_GET["remove"])){
         $product = $_GET["remove"];
 

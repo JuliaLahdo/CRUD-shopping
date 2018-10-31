@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Registrering</title>
 </head>
 <body>
 
@@ -39,11 +39,11 @@
         </form>
 
         <?php /* If all form-inputs aren't filled in */
-    if (isset($_GET["error"])){
-        echo $_GET["error"];
-    }
-?>
-        </div>
+            if (isset($_GET["error"])){
+                echo $_GET["error"];
+            }
+        ?>
+</div>
  
 </body>
 </html>
