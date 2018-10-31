@@ -28,9 +28,10 @@ session_start();
             );
 
             $shoppingCart = $statement->fetchAll(PDO::FETCH_ASSOC);
+            
             $sum = 0;
 
-            /* Looping through and showing shoppingcart, showing products from reaching out to database above */
+            /* Looping through and showing shoppingcart, showing products with correct prices from reaching out to database above */
             foreach ($shoppingCart as $cart){
                 $sum += $cart["amount"] * reducedPrice($cart["price"]);
                 echo "<p>" . $cart["amount"] . " st ";

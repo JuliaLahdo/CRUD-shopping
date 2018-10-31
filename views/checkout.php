@@ -31,7 +31,7 @@ session_start();
                     $shoppingCart = $statement->fetchAll(PDO::FETCH_ASSOC);
                     $sum = 0;
 
-                    /* Looping through and showing ordered products, showing products from reaching out to database above */
+                    /* Looping through and showing ordered products, showing products with correct prices from reaching out to database above */
                     foreach ($shoppingCart as $cart){
                         $sum += $cart["amount"] * reducedPrice($cart["price"]);
                         echo "<p>" . $cart["amount"] . " st ";
@@ -64,7 +64,7 @@ session_start();
 
                 $allUserInfo = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-                /* Looping through and showing chosed values to display deliveryaddress and contact information from reaching out to database above */
+                /* Looping through and showing chosen values to display deliveryaddress and contact information from reaching out to database above */
                 foreach ($allUserInfo as $userInfo){
                     echo "<p>" . $userInfo ["firstName"] . " ";
                     echo $userInfo ["lastName"] . " <br> ";
