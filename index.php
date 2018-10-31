@@ -14,13 +14,7 @@ session_start();
     <div class="container-fluid">
 
         <?php include 'includes/loop.php' ?>
-
-        <?php //include 'form.php' ?>
       
     </div>
        
        <?php include 'includes/footer.php' ?>
-
-</body>
-
-</html>

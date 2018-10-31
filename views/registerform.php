@@ -1,10 +1,9 @@
 <?php
-    include 'includes/head.php'
+    include '../includes/head.php'
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -38,13 +37,13 @@
             <input type="password" name="password" placeholder="Lösenord" id="registerPassword"><br>
             <input type="submit" name="submit" value="Slutför registrering">
         </form>
-        </div>
 
-<?php /* If all form-inputs aren't filled in */
+        <?php /* If all form-inputs aren't filled in */
     if (isset($_GET["error"])){
         echo $_GET["error"];
     }
 ?>
+        </div>
  
 </body>
 </html>

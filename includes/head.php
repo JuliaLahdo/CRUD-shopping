@@ -1,3 +1,5 @@
+
+
 <head>
 
     <!-- Required meta tags -->
@@ -42,27 +44,27 @@
                 </ul>
 
                 <div class="col-4 headerLogo">
-                    <a href="index.php"><h1>galant</h1></a></div>
+                    <a href="../index.php"><h1>galant</h1></a></div>
     
                 <div class="col-3 userLogo">         
                     <a href="<?php if(isset($_SESSION['username'])){
-                        echo 'shoppingCart.php';
+                        echo '../views/confirm.php';
                         } else {
-                        echo 'loginform.php';
+                        echo '../views/loginform.php';
                         } ?> "><i class="fas fa-user"></i></a>
                 </div>  
 
                 <div class="col-1 shoppingBag">
                     <a href="<?php if(isset($_SESSION['username'])){
-                        echo 'shoppingCart.php';
+                        echo '../views/confirm.php';
                         } else {
-                        echo 'loginform.php';
+                        echo '../views/loginform.php';
                         } ?> "><i class="fas fa-shopping-basket"></i></a>
                 </div>
 
                 <?php if (isset($_SESSION["username"])){ ?>
-                        <p>Du är inloggad som <?= $_SESSION["username"]; ?></p>
-                        <a href="logout.php">Logga ut</a>
+                        <p>Du är inloggad som <b><?= $_SESSION["username"]; ?></b></p>
+                        <a href="../views/logout.php">Logga ut</a>
                           
                 <?php } ?>
 

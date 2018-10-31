@@ -12,7 +12,11 @@
                 <p>Copyright &copy; 2018 galant</p>
 
             </div>
-        </footer>
+</footer>
+
+</body>
+
+</html>
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

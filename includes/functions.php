@@ -3,7 +3,7 @@ function reducedPrice($newPrice) {
   
         $date = date("l"); /* Picks out correct day automatically according to calendar */
         
-        if($date === 'Monday'){
+        if($date === 'Tuesday'){
         $newPrice = $newPrice / 2; /* Takes price / 2, 50% off every Monday */
     }else if(date("l") === 'Wednesday'){
          $newPrice = $newPrice * 1.1; /* Takes price * 1,1, price is 110% every Wednesday */
