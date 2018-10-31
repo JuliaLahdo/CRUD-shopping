@@ -29,34 +29,18 @@ session_start();
                     );
 
                     $shoppingCart = $statement->fetchAll(PDO::FETCH_ASSOC);
+                    $sum = 0;
 
                     /* Looping through and showing ordered products, showing products from reaching out to database above */
                     foreach ($shoppingCart as $cart){
-                        echo "<p>" . $cart ["amount"] . " st ";
-                        echo $cart["product"] . " ";
-                        echo $cart ["price"] . " kr/st ";?>
-                    <?php } ?></p> 
-                    <br>
+                        $sum += $cart["amount"] * reducedPrice($cart["price"]);
+                        echo "<p>" . $cart["amount"] . " st ";
+                        echo $cart["product"] . " för ";
+                        echo reducedPrice($cart["price"]) . " kr/st. Totalt:  ";
+                        echo reducedPrice(($cart["price"]) * ($cart["amount"])) . " kr ";?>
+                    <?php } ?></p>
+                    <p><b>Totalsumma:</b> <?= $sum; ?> SEK</p>
                     <p><i>Din order skickas från vårt lager inom 1-2 arbetsdagar.</i></p>
-        
-                    <?php 
-                            /*$prodCount = 0;*/ /* Variable for counting how many products in total at checkout */
-                            /*$priceTotal = 0;*/ /* Variable for counting what the total pricesum is of the number of products added in checkout */
-                        
-                            /*foreach($_POST as $prodName => $productAmount) {*/
-                                /* If productAmount is greater than 0 & that the named variables exist, take the sum of function reducedPrice * $productAmount and print this */
-                                /*if ($productAmount > 0 && array_key_exists($prodName, $products)) {
-                                    $rowSum = reducedPrice($products[$prodName]['price']) * $productAmount;
-                                    print ('<p>'.$productAmount.'st '.$products[$prodName]['name'].' för '.reducedPrice($products[$prodName]['price']).'kr/st. Totalt: '.$rowSum.'kr</p>');*/
-
-                                    /* $prodCount = $prodCount + $productAmount;
-                                    * $priceTotal = priceTotal + $rowSum; */
-                                    /*$prodCount += $productAmount;
-                                    $priceTotal +=  $rowSum;
-                                }
-                            }*/
-                    ?>
-
         </section>
 
     <section class="card text-center col-10 col-md-4 col-lg-4">

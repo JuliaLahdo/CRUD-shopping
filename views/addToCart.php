@@ -2,6 +2,7 @@
 session_start();
 
 include '../includes/database_connection.php';
+include '../includes/functions.php';
 
     /* Setting variables to use in PDO-statements below */
     $userID = $_SESSION["userID"];
