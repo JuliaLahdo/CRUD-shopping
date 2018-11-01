@@ -43,9 +43,12 @@ session_start();
             <?php } ?></p>
 
             <p><b>Totalsumma:</b> <?= $sum; ?> SEK</p>
-  
-        <p>Är du redo att slutföra din order?</p>
-        <a type="button" href="checkout.php">Genomför beställning</a>
+
+            <br>
+            <b><i><p>Är du redo att slutföra din order?</p></i></b>
+            <i class="fas fa-arrow-circle-down"></i>
+            <br>
+            <a type="button" href="checkout.php"><b>Genomför beställning</b></a>
 
     </section>
 

@@ -2,7 +2,7 @@
 
 session_start();
 
-    include '../includes/head.php';
+    include '../includes/checkouthead.php';
     include '../includes/functions.php';
 
 ?>
@@ -75,7 +75,7 @@ session_start();
                         echo "Mobilnummer (för leveransbekräftelse): " . $userInfo ["phone"] . " <br> ";?>
                         <br>
                     <?php } ?> </p>
-
+                    <a type="button" href="deleteCart.php">Avsluta och återgå till startsidan</a> 
         </section>
 </section>
 

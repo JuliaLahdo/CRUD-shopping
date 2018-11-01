@@ -3,7 +3,7 @@
             <div class="col-12">
 
                 <ul>
-                    <li><a href="index.html">Startsida</a></li>
+                    <li><a href="#">Startsida</a></li>
                     <li><a href="#">Om oss</a></li>
                     <li><a href="#">Kontakt</a></li>
 

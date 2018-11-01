@@ -24,11 +24,11 @@ foreach($products as $product): /* Looping through array.php, images, product na
             <!-- Looping through input-fields of each product in array.php, having hidden input-fields to be able to send userID, product price and product name to correct database -->
             <form action="../views/addToCart.php" method="POST" name="addToCart" id="addToCart">
                 <input class='howManyDoYouWant' type='number' name='productAmount' placeholder='Antal' value='<?= $_SESSION['saveInputValue'][$product['input']]; ?>'/>
-                <input type="hidden" name='userID' value="<?= $_SESSION["userID"] ?>">
-                <input type="hidden" name='productPrice' value="<?= $product['price']; ?>">
-                <input type="hidden" name='productName' value="<?= $product['name']; ?>">
+                <input type='hidden' name='userID' value="<?= $_SESSION['userID']; ?>">
+                <input type='hidden' name='productPrice' value="<?= $product['price']; ?>">
+                <input type='hidden' name='productName' value="<?= $product['name']; ?>">
                 <!-- If logged in: show add to cart button, else: go to loginform -->
-                <?php if(isset($_SESSION["username"])){?>
+                <?php if(isset($_SESSION['username'])){?>
                     <button type="submit"><i class="fas fa-shopping-basket"></i></button>
                     <?php
                     } else {?>
