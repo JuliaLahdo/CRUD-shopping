@@ -36,7 +36,7 @@
         ]
     );
 
-    /* If input-field in form is empty, redirect to index.php and fill in all fields */ 
+    /* If input-field in register-form is empty, redirect to index.php and fill in all fields */ 
     if(empty($_POST['firstName'])){
         header('Location: /registerform.php?error=Du har inte fyllt i ditt förnamn, var vänlig fyll i alla fält');
     }else if(empty($_POST['lastName'])){
