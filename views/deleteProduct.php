@@ -8,10 +8,13 @@ include '../includes/database_connection.php';
     if(isset($_GET["remove"])){
         $product = $_GET["remove"];
 
-        $statement = $pdo->prepare("DELETE FROM addToCart WHERE product = :product AND userID = :userID");
+        $statement = $pdo->prepare("DELETE FROM addToCart 
+        WHERE product = :product 
+        AND userID = :userID");
+        
         $statement->execute([
             ":product"  => $product,
-            ":userID" => $_SESSION["userID"]
+            ":userID" => $_SESSION['userID']
         ]);
 
         header('Location: confirm.php');
