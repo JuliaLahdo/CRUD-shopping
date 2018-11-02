@@ -38,25 +38,25 @@
 
     /* If input-field in register-form is empty, redirect to index.php and fill in all fields */ 
     if(empty($_POST['firstName'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i ditt förnamn, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i ditt förnamn, var vänlig fyll i alla fält');
     }else if(empty($_POST['lastName'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i ditt efternamn, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i ditt efternamn, var vänlig fyll i alla fält');
     }else if(empty($_POST['personalID'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i ditt personnummer, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i ditt personnummer, var vänlig fyll i alla fält');
     }else if(empty($_POST['address'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i din adress, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i din adress, var vänlig fyll i alla fält');
     }else if(empty($_POST['postalcode'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i ditt postnummer, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i ditt postnummer, var vänlig fyll i alla fält');
     }else if(empty($_POST['city'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i din ort, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i din ort, var vänlig fyll i alla fält');
     }else if(empty($_POST['email'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i din email, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i din email, var vänlig fyll i alla fält');
     }else if(empty($_POST['phone'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i ditt mobilnummer, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i ditt mobilnummer, var vänlig fyll i alla fält');
     }else if(empty($_POST['username'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i ditt valda användarnamn, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i ditt valda användarnamn, var vänlig fyll i alla fält');
     }else if(empty($_POST['password'])){
-        header('Location: /registerform.php?error=Du har inte fyllt i ditt valda lösenord, var vänlig fyll i alla fält');
+        header('Location: registerform.php?error=Du har inte fyllt i ditt valda lösenord, var vänlig fyll i alla fält');
     }else
         header ('Location: loginform.php');
 ?>

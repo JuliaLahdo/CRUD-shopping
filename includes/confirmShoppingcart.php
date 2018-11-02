@@ -3,6 +3,10 @@
 
             <?php
 
+            if(isset($_GET["error"])){
+                echo "<p class='error'>Du måste lägga till en vara i din varukorg för att slutföra din order!</p>";
+            }
+
             include 'database_connection.php'; 
 
             /* Setting variable to use in PDO-statements below */
@@ -40,6 +44,10 @@
             <b><i><p>Är du redo att slutföra din order?</p></i></b>
             <i class="fas fa-arrow-circle-down"></i>
             <br>
-            <a type="button" href="../views/checkout.php"><b>Genomför beställning</b></a>
+
+            <a type="button" href="<?php if(count($shoppingCart) == 0){
+                    echo "?error";
+                    }else{
+                    echo '../views/checkout.php';}  ?>"><b>Genomför beställning</b></a>
 
     </section>

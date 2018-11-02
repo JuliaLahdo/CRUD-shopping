@@ -54,7 +54,6 @@
 
                 <?php if (isset($_SESSION['username'])){ ?>
                         <p>Du är inloggad som <b><?= $_SESSION['username']; ?></b></p>
-                        <a href="../views/logout.php">Logga ut</a>
                           
                 <?php } ?>
 

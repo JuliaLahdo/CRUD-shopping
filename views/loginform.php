@@ -26,7 +26,7 @@
 
 <?php /* If all form-inputs aren't filled in */
     if (isset($_GET["error"])){
-        echo $_GET["error"];
+        echo "<p class='error'>" . $_GET["error"] . "</p>";
     }
 ?>
     
