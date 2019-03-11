@@ -19,8 +19,8 @@
             <input type="text" name="firstName" placeholder="Förnamn" id="registerFirstName"><br>
             <label for="lastname">Efternamn</label><br>
             <input type="text" name="lastName" placeholder="Efternamn" id="registerLastName"><br>
-            <label for="personalID">Personnummer</label><br>
-            <input type="text" name="personalID" placeholder="ÅÅÅÅMMDD-XXXX" id="registerPersonalID"><br>
+            <label for="personalID">Födelsedatum</label><br>
+            <input type="text" name="personalID" placeholder="ÅÅÅÅMMDD" id="registerPersonalID"><br>
             <label for="address">Adress</label><br>
             <input type="text" name="address" placeholder="Adress" id="registerAddress"><br>
             <label for="postalcode">Postnummer</label><br>

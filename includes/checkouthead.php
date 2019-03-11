@@ -24,7 +24,6 @@
     <div class="container-fluid">
 
         <header role="banner">
-    <!-- Navbar start -->
             <nav class="navbar fixed-top" role="navigation">
                
                 <ul class="col-4 nav-item dropdown">
@@ -57,7 +56,6 @@
                           
                 <?php } ?>
 
-
-            </nav> <!-- End of navbar -->
+            </nav>
 
         </header>

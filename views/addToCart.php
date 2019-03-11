@@ -54,7 +54,4 @@ include '../includes/functions.php';
 
     header('Location: ../index.php');
     }
-
-
-
 ?>

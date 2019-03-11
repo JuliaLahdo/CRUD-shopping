@@ -4,7 +4,6 @@
                 <?php
 
                     include 'database_connection.php'; 
-
                     /* Setting variable to use in PDO-statements below */
                     $userID = $_SESSION['userID'];
 
